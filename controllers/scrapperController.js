@@ -1,5 +1,6 @@
 const axios = require("axios");
 const { loadAllData } = require("../utils/loadData");
+const { generateNextMove } = require("../utils/moveGenerator");
 
 const URL = process.env.SCRAPE_URL || "https://www.data.com/chessecohelp.html";
 
@@ -21,7 +22,6 @@ const getDataByCode = async (req, res) => {
     const code = req.params.CODE;
     const data = await loadAllData();
     let result = data.filter((item) => item.code === code);
-    console.log(result);
     return res.status(200).send(result[0].name + "\n" + result[0].moves);
   } catch (err) {
     console.log(err);
@@ -31,7 +31,20 @@ const getDataByCode = async (req, res) => {
   }
 };
 
+const nextMove = async (req, res) => {
+  const moves = req.url.split("/");
+  const code = moves[1];
+  const givenMoves = moves.slice(2);
+
+  const nextMove = await generateNextMove(code, givenMoves);
+  if (!nextMove) {
+    return res.status(404).send("No next move found");
+  }
+  return res.status(200).send(nextMove);
+};
+
 module.exports = {
   getAllData,
   getDataByCode,
+  nextMove,
 };
