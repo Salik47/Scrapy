@@ -1,0 +1,33 @@
+{
+  "name": "web-scraper",
+  "version": "1.0.0",
+  "description": "Web Scraper project for Hackerearth's Lead-A-Thon Challenge",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "node.js",
+    "express.js",
+    "web",
+    "scraper",
+    "web",
+    "scraping"
+  ],
+  "author": "Mohammed Salik Mulla",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cheerio": "^1.0.0-rc.10",
+    "cors": "^2.8.5",
+    "dotenv": "^12.0.3",
+    "express": "^4.17.2",
+    "morgan": "^1.10.0",
+    "node-cache": "^5.1.2",
+    "request-promise": "^4.2.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
