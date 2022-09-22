@@ -11,9 +11,7 @@ const getAllData = async (_req, res) => {
     return res.status(200).send(data);
   } catch (err) {
     console.log(err);
-    return res
-      .status(500)
-      .json({ status: "Error", message: "Internal Server Error" });
+    return res.status(500).send("Internal Server Error");
   }
 };
 
@@ -28,9 +26,7 @@ const getDataByCode = async (req, res) => {
     return res.status(200).send(result[0].name + "\n" + result[0].moves);
   } catch (err) {
     console.log(err);
-    return res
-      .status(500)
-      .json({ status: "Error", message: "Internal Server Error" });
+    return res.status(500).send("Internal Server Error");
   }
 };
 
