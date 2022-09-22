@@ -2,7 +2,7 @@ const axios = require("axios");
 const { loadAllData } = require("../utils/loadData");
 const { generateNextMove } = require("../utils/moveGenerator");
 
-const URL = process.env.SCRAPE_URL || "https://www.data.com/chessecohelp.html";
+const URL = process.env.SCRAPE_URL;
 
 const getAllData = async (_req, res) => {
   try {

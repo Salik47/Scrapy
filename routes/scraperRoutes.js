@@ -5,12 +5,10 @@ const {
   getAllData,
   getDataByCode,
   nextMove,
-} = require("../controllers/scrapperController");
+} = require("../controllers/scraperController");
 
 router.get("/", cache, getAllData);
-
 router.get("/:CODE", cache, getDataByCode);
-
 router.use(cache, nextMove);
 
 module.exports = router;
