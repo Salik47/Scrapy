@@ -21,7 +21,10 @@ const getDataByCode = async (req, res) => {
   try {
     const code = req.params.CODE;
     const data = await loadAllData();
+
     let result = data.filter((item) => item.code === code);
+    if (result.length === 0) return res.status(404).send("Entry not found");
+
     return res.status(200).send(result[0].name + "\n" + result[0].moves);
   } catch (err) {
     console.log(err);
