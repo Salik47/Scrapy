@@ -1,5 +1,4 @@
 const express = require("express");
-const cors = require("cors");
 const morgan = require("morgan");
 require("dotenv").config();
 const scraperRoutes = require("./routes/scraperRoutes");
@@ -10,7 +9,6 @@ const app = express();
 // Middlewares
 app.use(express.json({ extended: false }));
 app.use(express.urlencoded({ extended: false }));
-app.use(cors());
 app.use(morgan("dev"));
 
 // Routes
