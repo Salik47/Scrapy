@@ -9,7 +9,10 @@ const app = express();
 // Middlewares
 app.use(express.json({ extended: false }));
 app.use(express.urlencoded({ extended: false }));
-app.use(morgan("dev"));
+if (process.env.NODE_ENV === "DEV") {
+	const morgan = require("morgan");
+	app.use(morgan("tiny"));
+}
 
 // Routes
 app.use("/", scraperRoutes);
